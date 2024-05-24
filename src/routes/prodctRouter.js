@@ -5,6 +5,7 @@ import { addProduct } from "../controllers/productController.js";
 
 const router = express.Router();
 
+// Add product
 router.post("/add", validateCompany, upload.single("ProductImage"), addProduct);
 
 export default router;

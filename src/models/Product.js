@@ -1,5 +1,6 @@
 import { Sequelize, DataTypes } from 'sequelize';
 
+// Define the Product  model for Sequelize
 export default (sequelize) => {
   const Product = sequelize.define('Product', {
     name: {

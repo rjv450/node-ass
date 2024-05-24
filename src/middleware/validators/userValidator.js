@@ -1,4 +1,6 @@
 import { body, validationResult } from "express-validator";
+
+//validator for company creations
 export const validateUser = [
   body("name").notEmpty().withMessage("Name is required"),
   body("email").isEmail().withMessage("Invalid email format"),
@@ -23,6 +25,8 @@ export const validateUser = [
     next();
   },
 ];
+
+//validator for login for company
 export const loginValidator = [
   body("email").isEmail().withMessage("Invalid email format"),
   body("password").notEmpty().withMessage("Password is required"),

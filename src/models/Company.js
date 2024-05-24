@@ -1,5 +1,6 @@
 import { Sequelize, DataTypes } from 'sequelize';
 
+// Define the Company model for Sequelize
 export default (sequelize) => {
   const Company = sequelize.define('Company', {
     name: {

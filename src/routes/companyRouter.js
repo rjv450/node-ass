@@ -9,8 +9,10 @@ import {
 } from "../controllers/companyController.js";
 
 const router = express.Router();
-
+// Register a new company
 router.post("/register", validateUser, registerCompany);
+
+// Login a company
 router.post("/login", loginValidator, companyLogin);
 
 export default router;
