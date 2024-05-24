@@ -96,7 +96,7 @@ export const registerCompany = async (req, res) => {
       name,
       password: hashedPassword,
       email,
-      role,
+      role: "admin",
       dbName: name,
     });
 
