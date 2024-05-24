@@ -29,7 +29,7 @@ describe("addProduct", () => {
       create: jest.fn().mockResolvedValue({
         name: "Test Product",
         description: "This is a test product",
-        productImage: "test/path/to/image.jpg",
+        images: "test/path/to/image.jpg",
       }),
     };
     connectDB.mockResolvedValue("mockDBConnection");
@@ -48,13 +48,13 @@ describe("addProduct", () => {
     expect(mockProductInstance.create).toHaveBeenCalledWith({
       name: "Test Product",
       description: "This is a test product",
-      productImage: "test/path/to/image.jpg",
+      images: "test/path/to/image.jpg",
     });
     expect(res.status).toHaveBeenCalledWith(201);
     expect(res.json).toHaveBeenCalledWith({
       name: "Test Product",
       description: "This is a test product",
-      productImage: "test/path/to/image.jpg",
+      images: "test/path/to/image.jpg",
     });
   });
 

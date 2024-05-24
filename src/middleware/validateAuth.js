@@ -8,7 +8,9 @@ export const validateCompany = async (req, res, next) => {
   try {
     // Checking if Authorization header is present in the request
     if (!req.headers.authorization) {
-      return res.status(401).json({ message: "Authorization header is missing" });
+      return res
+        .status(401)
+        .json({ message: "Authorization header is missing" });
     }
 
     // Extracting the JWT token from the Authorization header
@@ -43,6 +45,8 @@ export const validateCompany = async (req, res, next) => {
     next();
   } catch (error) {
     console.error("Error validating company:", error);
+
+    // Return a 401 Unauthorized error if there is an issue with validation
     return res.status(401).json({ message: "Unauthorized" });
   } finally {
     // Closing the main database connection after processing
@@ -51,6 +55,8 @@ export const validateCompany = async (req, res, next) => {
         await closeConnection(mainDBConnection.config["database"]);
       } catch (error) {
         console.error("Error closing connection:", error);
+
+        // If there is an error closing the connection, return a 500 Server Error
         res.status(500).json({ message: "Server error" });
       }
     }

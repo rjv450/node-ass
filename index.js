@@ -19,6 +19,7 @@ app.get("/", (req, res) => {
   res.send("Hello, world!");
 });
 app.use((err, req, res, next) => {
+  console.log(err);
   if (err.status === 500 || !err.status) {
     res.status(500).json({
       message: "Internal Server Error",
